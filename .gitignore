@@ -1,0 +1,10 @@
+*.svn
+[Bb]in
+[Oo]bj
+*ReSharper*
+*resharper*
+*.user
+*.suo
+*.sqlsuo
+*.pdb
+*.rdl.data
