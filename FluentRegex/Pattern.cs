@@ -4,6 +4,8 @@ namespace FluentRegex
 {
 	public class Pattern
 	{
+		private const string SPECIAL_CHARS = @"^$.|{}[]()*+?\";
+
 		private StringBuilder _builder = new StringBuilder();
 
 		/// <summary>
@@ -62,8 +64,15 @@ namespace FluentRegex
 
 		public Pattern Literal(string literal)
 		{
-			// TODO: handle special chars
-			_builder.Append(literal);
+			// handle special chars
+			foreach (char c in literal)
+			{
+				if (SPECIAL_CHARS.IndexOf(c) >= 0)
+					_builder.AppendFormat(@"\{0}", c);
+				else
+					_builder.Append(c);
+			}
+
 			return this;
 		}
 
