@@ -3,7 +3,7 @@ version: 1.0.0.{build}
 environment:
   packageVersion: 1.0.0
 
-image: Visual Studio 2019
+image: Visual Studio 2022
 
 init:
 - ps: $env:buildVersion = "$env:packageVersion.$env:appveyor_build_number"
