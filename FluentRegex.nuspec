@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package >
+    <metadata>
+        <id>FluentRegex</id>
+        <version>$version$</version>
+        <title>FluentRegex</title>
+        <description>Fluent regular expression builder for .NET</description>
+        <authors>Brandon Wood</authors>
+        <owners>Brandon Wood</owners>
+        <projectUrl>https://github.com/bcwood/FluentRegex</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <copyright>Brandon Wood</copyright>
+        <tags>regex</tags>
+        <releaseNotes></releaseNotes>
+    </metadata>
+    <files>
+        <file src="FluentRegex\bin\Release\netstandard2.0\FluentRegex.dll" target="lib\netstandard2.0" />
+    </files>
+</package>
