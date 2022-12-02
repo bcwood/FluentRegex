@@ -1,3 +1,9 @@
+# Fluent Regex
+
+[![Build status](https://ci.appveyor.com/api/projects/status/jggr83skbyp09d0e?svg=true)](https://ci.appveyor.com/project/bcwood/fluentregex) [![NuGet](https://img.shields.io/nuget/v/Fluent-Regex)](https://www.nuget.org/packages/Fluent-Regex/)
+
+The *original* fluent regular expression builder for .NET.
+
 ## Introduction
 
 > Some people, when confronted with a problem, think "I know, I'll use regular expressions." Now they have two problems. *- Jamie Zawinski*
@@ -21,6 +27,10 @@ Regular expressions can be extremely useful in the right circumstances, but they
 What human can possibly read and understand that? 
 
 In an effort to create a more readable method of writing regular expressions in .NET, I've created **FluentRegex**.
+
+## Install from NuGet
+
+    Install-Package Fluent-Regex
 
 ## Examples
 
