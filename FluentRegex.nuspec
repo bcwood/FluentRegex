@@ -1,16 +1,17 @@
 <?xml version="1.0"?>
 <package >
     <metadata>
-        <id>FluentRegex</id>
+        <id>Fluent-Regex</id>
         <version>$version$</version>
-        <title>FluentRegex</title>
-        <description>Fluent regular expression builder for .NET</description>
+        <title>Fluent-Regex</title>
+        <description>The original fluent regular expression builder for .NET</description>
         <authors>Brandon Wood</authors>
         <owners>Brandon Wood</owners>
         <projectUrl>https://github.com/bcwood/FluentRegex</projectUrl>
+		<license type="expression">MIT</license>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <copyright>Brandon Wood</copyright>
-        <tags>regex</tags>
+        <tags>regex regularexpression</tags>
         <releaseNotes></releaseNotes>
     </metadata>
     <files>

@@ -20,10 +20,10 @@ build:
   verbosity: minimal
 
 after_build:
-- ps: nuget pack FluentRegex.nuspec -version "$env:nugetVersion"
+- ps: nuget pack Fluent-Regex.nuspec -version "$env:nugetVersion"
 
 artifacts:
-- path: 'FluentRegex*.nupkg'
+- path: 'Fluent-Regex*.nupkg'
   name: nuget-package
 
 deploy:
