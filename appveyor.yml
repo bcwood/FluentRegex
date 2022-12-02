@@ -1,7 +1,7 @@
-version: 1.0.0.{build}
+version: 1.0.1.{build}
 
 environment:
-  packageVersion: 1.0.0
+  packageVersion: 1.0.1
 
 image: Visual Studio 2022
 
