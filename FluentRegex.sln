@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33103.184
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentRegex", "FluentRegex\FluentRegex.csproj", "{1428EAC7-E40D-4D77-8601-0262AA599B3D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluentRegex", "FluentRegex\FluentRegex.csproj", "{1428EAC7-E40D-4D77-8601-0262AA599B3D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentRegex.Tests", "FluentRegex.Tests\FluentRegex.Tests.csproj", "{C020D1A0-30FD-4EC1-940F-3965D2F47F71}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluentRegex.Tests", "FluentRegex.Tests\FluentRegex.Tests.csproj", "{C020D1A0-30FD-4EC1-940F-3965D2F47F71}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
