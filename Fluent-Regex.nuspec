@@ -13,8 +13,10 @@
         <copyright>Brandon Wood</copyright>
         <tags>regex regularexpression</tags>
         <releaseNotes></releaseNotes>
+		<readme>docs\README.md</readme>
     </metadata>
     <files>
         <file src="FluentRegex\bin\Release\netstandard2.0\FluentRegex.dll" target="lib\netstandard2.0" />
+		<file src="README.md" target="docs\" />
     </files>
 </package>
