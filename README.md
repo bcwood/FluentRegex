@@ -12,7 +12,7 @@ Does that make this a 3rd problem?
 
 Regular expressions can be extremely useful in the right circumstances, but they can also be terriblly complicated to understand. Consider this regular expression for parsing email addresses based on the RFC 5322 standard:
 
-```
+```csharp
 (?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*
   |  "(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]
       |  \\[\x01-\x09\x0b\x0c\x0e-\x7f])*")
@@ -37,12 +37,12 @@ In an effort to create a more readable method of writing regular expressions in 
 Let's use a simpler email regular expression to demonstrate some of the library's capabilities.
 
 Normally, we'd write the regular expression something like this:
-```
+```csharp
 string regex = @"^[a-zA-Z\d\.-_]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,4}$";
 ```
 
 With FluentRegex, we can express it like this:
-```
+```csharp
 Pattern p = Pattern.With
                    .StartOfLine
                    .Set(Pattern.With.Letter.Digit.Literal(".-_")).Repeat.OneOrMore
