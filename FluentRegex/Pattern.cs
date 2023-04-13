@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
 
 namespace FluentRegex
 {
@@ -196,6 +197,21 @@ namespace FluentRegex
 		public Pattern Group(Pattern pattern)
 		{
 			_builder.AppendFormat("({0})", pattern);
+			return this;
+		}
+		
+		public Pattern NamedGroup(string groupName, Pattern pattern)
+		{
+			// Check if groupName contains any invalid characters
+			foreach (char c in groupName)
+			{
+				if (!char.IsLetterOrDigit(c) && c != '_')
+				{
+					throw new ArgumentException("Invalid group name: " + groupName);
+				}
+			}
+			
+			_builder.AppendFormat("(?<{0}>{1})", groupName, pattern);
 			return this;
 		}
 
