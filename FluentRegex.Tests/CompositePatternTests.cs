@@ -17,6 +17,28 @@ namespace FluentRegex.Tests
 
 			Assert.That(p.ToString(), Is.EqualTo(@"(\d\w)"));
 		}
+		
+		[Test]
+		public void NamedGroup()
+		{
+			Pattern p = Pattern.With.NamedGroup("Name", Pattern.With
+				.Digit
+				.Word);
+
+			Assert.That(p.ToString(), Is.EqualTo(@"(?<Name>\d\w)"));
+		}
+		
+		[Test]
+		public void NamedGroup_InvalidGroupName_ThrowsArgumentException()
+		{
+			Assert.Throws<ArgumentException>(() =>
+			{
+				Pattern p = Pattern.With.NamedGroup("Invalid!Name", Pattern.With
+					.Digit
+					.Word);
+			});
+		}
+
 
 		[Test]
 		public void Set()
