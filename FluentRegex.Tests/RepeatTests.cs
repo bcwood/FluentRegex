@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System.Text.RegularExpressions;
+using NUnit.Framework;
 
 namespace FluentRegex.Tests
 {
@@ -11,6 +12,9 @@ namespace FluentRegex.Tests
 			Pattern p = Pattern.With.Literal("a").Repeat.OneOrMore;
 
 			Assert.That(p.ToString(), Is.EqualTo("a+"));
+			
+			// Check if the regular expression can be compiled without throwing an exception
+			Assert.That(() => new Regex(p.ToString()), Throws.Nothing);
 		}
 
 		[Test]
@@ -19,6 +23,9 @@ namespace FluentRegex.Tests
 			Pattern p = Pattern.With.Literal("a").Repeat.ZeroOrMore;
 
 			Assert.That(p.ToString(), Is.EqualTo("a*"));
+			
+			// Check if the regular expression can be compiled without throwing an exception
+			Assert.That(() => new Regex(p.ToString()), Throws.Nothing);
 		}
 
 		[Test]
@@ -27,6 +34,9 @@ namespace FluentRegex.Tests
 			Pattern p = Pattern.With.Literal("a").Repeat.Optional;
 
 			Assert.That(p.ToString(), Is.EqualTo("a?"));
+			
+			// Check if the regular expression can be compiled without throwing an exception
+			Assert.That(() => new Regex(p.ToString()), Throws.Nothing);
 		}
 
 		[Test]
@@ -35,6 +45,9 @@ namespace FluentRegex.Tests
 			Pattern p = Pattern.With.Literal("a").Repeat.Times(3);
 
 			Assert.That(p.ToString(), Is.EqualTo("a{3}"));
+			
+			// Check if the regular expression can be compiled without throwing an exception
+			Assert.That(() => new Regex(p.ToString()), Throws.Nothing);
 		}
 
 		[Test]
@@ -43,6 +56,9 @@ namespace FluentRegex.Tests
 			Pattern p = Pattern.With.Literal("a").Repeat.Times(3, 5);
 
 			Assert.That(p.ToString(), Is.EqualTo("a{3,5}"));
+			
+			// Check if the regular expression can be compiled without throwing an exception
+			Assert.That(() => new Regex(p.ToString()), Throws.Nothing);
 		}
 
 		[Test]
@@ -51,6 +67,9 @@ namespace FluentRegex.Tests
 			Pattern p = Pattern.With.Literal("a").Repeat.AtLeast(3);
 
 			Assert.That(p.ToString(), Is.EqualTo("a{3,}"));
+			
+			// Check if the regular expression can be compiled without throwing an exception
+			Assert.That(() => new Regex(p.ToString()), Throws.Nothing);
 		}
 
 		[Test]
@@ -59,6 +78,9 @@ namespace FluentRegex.Tests
 			Pattern p = Pattern.With.Literal("a").Repeat.AtMost(3);
 
 			Assert.That(p.ToString(), Is.EqualTo("a{,3}"));
+			
+			// Check if the regular expression can be compiled without throwing an exception
+			Assert.That(() => new Regex(p.ToString()), Throws.Nothing);
 		}
 	}
 }

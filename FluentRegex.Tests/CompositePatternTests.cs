@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System.Text.RegularExpressions;
+using NUnit.Framework;
 
 namespace FluentRegex.Tests
 {
@@ -16,6 +17,9 @@ namespace FluentRegex.Tests
 												  .Word);
 
 			Assert.That(p.ToString(), Is.EqualTo(@"(\d\w)"));
+			
+			// Check if the regular expression can be compiled without throwing an exception
+			Assert.That(() => new Regex(p.ToString()), Throws.Nothing);
 		}
 		
 		[Test]
@@ -26,6 +30,9 @@ namespace FluentRegex.Tests
 				.Word);
 
 			Assert.That(p.ToString(), Is.EqualTo(@"(?<Name>\d\w)"));
+			
+			// Check if the regular expression can be compiled without throwing an exception
+			Assert.That(() => new Regex(p.ToString()), Throws.Nothing);
 		}
 		
 		[Test]
@@ -48,6 +55,31 @@ namespace FluentRegex.Tests
 												.Word);
 
 			Assert.That(p.ToString(), Is.EqualTo(@"[\d\w]"));
+			
+			// Check if the regular expression can be compiled without throwing an exception
+			Assert.That(() => new Regex(p.ToString()), Throws.Nothing);
+		}
+		
+		[Test]
+		public void Set_With_Dash()
+		{
+			Pattern p = Pattern.With.Set(Pattern.With.Literal(".- _"));
+
+			Assert.That(p.ToString(), Is.EqualTo(@"[\.\- _]"));
+			
+			// Check if the regular expression can be compiled without throwing an exception
+			Assert.That(() => new Regex(p.ToString()), Throws.Nothing);
+		}
+		
+		[Test]
+		public void Set_With_Dash_And_Letters()
+		{
+			Pattern p = Pattern.With.Set(Pattern.With.Literal(".- _").Letter);
+
+			Assert.That(p.ToString(), Is.EqualTo(@"[\.\- _a-zA-Z]"));
+			
+			// Check if the regular expression can be compiled without throwing an exception
+			Assert.That(() => new Regex(p.ToString()), Throws.Nothing);
 		}
 
 		[Test]
@@ -58,6 +90,9 @@ namespace FluentRegex.Tests
 													   .Word);
 
 			Assert.That(p.ToString(), Is.EqualTo(@"[^\d\w]"));
+			
+			// Check if the regular expression can be compiled without throwing an exception
+			Assert.That(() => new Regex(p.ToString()), Throws.Nothing);
 		}
 
 		[Test]
@@ -67,6 +102,9 @@ namespace FluentRegex.Tests
 											Pattern.With.Whitespace);
 
 			Assert.That(p.ToString(), Is.EqualTo("(\\d{3}|\\s)"));
+			
+			// Check if the regular expression can be compiled without throwing an exception
+			Assert.That(() => new Regex(p.ToString()), Throws.Nothing);
 		}
 
 		[Test]
@@ -77,16 +115,19 @@ namespace FluentRegex.Tests
 											Pattern.With.Literal("a"));
 
 			Assert.That(p.ToString(), Is.EqualTo("(\\d{3}|\\s|a)"));
+			
+			// Check if the regular expression can be compiled without throwing an exception
+			Assert.That(() => new Regex(p.ToString()), Throws.Nothing);
 		}
 
 		[Test]
 		public void Email()
 		{
-			string regex = @"^[a-zA-Z\d\.-_]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,4}$";
+			string regex = @"^[a-zA-Z\d_\-\.]+@[a-zA-Z\d\.\-]+\.[a-zA-Z]{2,4}$";
 
 			Pattern p = Pattern.With
 			                   .StartOfLine
-			                   .Set(Pattern.With.Letter.Digit.Literal(".-_")).Repeat.OneOrMore
+			                   .Set(Pattern.With.Letter.Digit.Literal("_-.")).Repeat.OneOrMore
 			                   .Literal("@")
 			                   .Set(Pattern.With.Letter.Digit.Literal(".-")).Repeat.OneOrMore
 			                   .Literal(".")
@@ -94,12 +135,15 @@ namespace FluentRegex.Tests
 			                   .EndOfLine;
 
 			Assert.That(p.ToString(), Is.EqualTo(regex));
+			
+			// Check if the regular expression can be compiled without throwing an exception
+			Assert.That(() => new Regex(regex), Throws.Nothing);
 		}
 
 		[Test]
 		public void SSN()
 		{
-			string regex = @"^\d{3}-?\d{2}-?\d{4}$";
+			string regex = @"^\d{3}\-?\d{2}\-?\d{4}$";
 
 			Pattern p = Pattern.With
 							   .StartOfLine
@@ -111,6 +155,9 @@ namespace FluentRegex.Tests
 			                   .EndOfLine;
 
 			Assert.That(p.ToString(), Is.EqualTo(regex));
+			
+			// Check if the regular expression can be compiled without throwing an exception
+			Assert.That(() => new Regex(p.ToString()), Throws.Nothing);
 		}
 	}
 }

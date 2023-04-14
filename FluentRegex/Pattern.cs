@@ -5,7 +5,7 @@ namespace FluentRegex
 {
 	public class Pattern
 	{
-		private const string SPECIAL_CHARS = @"^$.|{}[]()*+?\";
+		private const string SPECIAL_CHARS = @"^$.|{}[]()*+?\-";
 
 		private StringBuilder _builder = new StringBuilder();
 
